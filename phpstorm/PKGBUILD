@@ -1,0 +1,15 @@
+pkgname=phpstorm
+pkgver=8.0.3
+pkgrel=1
+pkgdesc="Lightweight and Smart PHP IDE."
+arch=('i686' 'x86_64')
+options=(!strip)
+url="http://www.jetbrains.com/phpstorm/"
+license=('custom')
+depends=('java-environment>=6' 'bash')
+source="http://download.jetbrains.com/webide/PhpStorm-${pkgver}.tar.gz"
+sha256sums="2b11ffe1a14a07d2616df0f84fce333bdcdd05b8b9417f3a1be92a3bb2b3c7f4"
+
+package() {
+	install -d -m 755 "${pkgdir}/opt/share"
+}
