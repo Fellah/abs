@@ -1,0 +1,26 @@
+pkgname=phpstorm
+pkgver=10.0.3
+pkgrel=1
+pkgdesc="PhpStorm"
+arch=("i686" "x86_64")
+options=(!strip)
+url="http://www.jetbrains.com/phpstorm/"
+license=("custom")
+depends=("java-environment>=6" "bash")
+source=("http://download.jetbrains.com/webide/PhpStorm-${pkgver}.tar.gz")
+sha256sums=("65bf47047a77567389b5e49b689b6d04287096f057d0ff042a47703118244493")
+
+package() {
+	install --directory --mode=755 $pkgdir/opt/phpstorm
+	install --directory --mode=755 $pkgdir/usr/bin
+	install --directory --mode=755 $pkgdir/usr/share/applications/
+	install --directory --mode=755 $pkgdir/usr/share/pixmaps/
+
+	cp -rf $srcdir/PhpStorm-143.1770/* $pkgdir/opt/phpstorm
+
+	ln -s /opt/phpstorm/bin/phpstorm.sh $pkgdir/usr/bin/phpstorm
+
+#	install -D --mode=644 $srcdir/jetbrains-phpstorm.desktop $pkgdir/usr/share/applications/
+
+	install -D --mode=644 $pkgdir/opt/phpstorm/bin/webide.png $pkgdir/usr/share/pixmaps/phpstorm.png
+}
