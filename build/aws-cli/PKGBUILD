@@ -6,6 +6,8 @@ arch=("i686" "x86_64")
 options=(!strip)
 url="https://aws.amazon.com/cli/"
 license=('Apache')
+depends=("python")
+makedepends=("python" "python-setuptools") 
 source=(
 	"https://github.com/aws/aws-cli/archive/1.10.6.tar.gz"
 	"aws-cli.completion"
