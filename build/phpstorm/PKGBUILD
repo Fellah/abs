@@ -3,6 +3,7 @@ pkgver=2016.2.2
 pkgrel=1
 pkgdesc="PhpStorm"
 arch=("i686" "x86_64")
+backup=("opt/phpstorm/bin/idea.properties")
 options=(!strip)
 url="http://www.jetbrains.com/phpstorm/"
 license=(custom)
