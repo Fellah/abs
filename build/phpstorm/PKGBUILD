@@ -1,23 +1,23 @@
 pkgname=phpstorm
-pkgver=2016.1
+pkgver=2016.2.2
 pkgrel=1
 pkgdesc="PhpStorm"
 arch=("i686" "x86_64")
 options=(!strip)
 url="http://www.jetbrains.com/phpstorm/"
 license=(custom)
-depends=("java-environment>=6" "bash")
+depends=("java-environment>=8" "java-runtime-common")
 source=(
 	"http://download.jetbrains.com/webide/PhpStorm-$pkgver.tar.gz"
 	"jetbrains-phpstorm.desktop"
 )
-sha256sums=(
-	"48b3b1d4e4dec954bb224193aea367b6aa6893d286c0e022775e9f81527251ce"
-	"9adde03eb5c794834bf8d8beedf6869a64f4e10f5f6a308c0ef1dd8d9e568393"
+sha512sums=(
+	"33561abcf4e922b1186c23e995bad7649d78a1d31d5bd850a6ea0f09f928b991e59b91544a14b25e9139c086382ac8d9e98856ccc402a1c68cdc7d53c2e26d3a"
+	"7749436302e94ed99253684cab973ce4e519e056abf9eb5407528f86b3638c23a4e22240f18045d328ecabf29a3f9d05141409a9affebf656c166a2a9de6abbe"
 )
 
 package() {
-	local build=145.258.2
+	local build=162.2380.11
 
 	install --directory --mode=755 $pkgdir/opt/phpstorm
 	install --directory --mode=755 $pkgdir/usr/bin
@@ -29,6 +29,5 @@ package() {
 	ln -s /opt/phpstorm/bin/phpstorm.sh $pkgdir/usr/bin/phpstorm
 
 	install -D --mode=644 $srcdir/jetbrains-phpstorm.desktop $pkgdir/usr/share/applications/
-
 	install -D --mode=644 $pkgdir/opt/phpstorm/bin/webide.png $pkgdir/usr/share/pixmaps/phpstorm.png
 }
