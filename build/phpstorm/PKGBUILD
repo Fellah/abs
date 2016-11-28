@@ -1,5 +1,5 @@
 pkgname=phpstorm
-pkgver=2016.2.2
+pkgver=2016.3
 pkgrel=1
 pkgdesc="PhpStorm"
 arch=("i686" "x86_64")
@@ -13,12 +13,12 @@ source=(
 	"jetbrains-phpstorm.desktop"
 )
 sha512sums=(
-	"33561abcf4e922b1186c23e995bad7649d78a1d31d5bd850a6ea0f09f928b991e59b91544a14b25e9139c086382ac8d9e98856ccc402a1c68cdc7d53c2e26d3a"
-	"7749436302e94ed99253684cab973ce4e519e056abf9eb5407528f86b3638c23a4e22240f18045d328ecabf29a3f9d05141409a9affebf656c166a2a9de6abbe"
+	"fa681f4f2cdeb546d7b1301ee57acb5cec66231e01921b6ef3d89c05f0ba1a50887bf56db523191a87e938b8d206860a363aa8ab1d2845a2400a17fdb8f1eb9c"
+	"ecd38ba61292bcee49790559ba3156310d455896d067aea97d9e12e4aa518c7d1f131f98895124839f867be90fdd77ee64dcb07a8bc444b6add45ea0800e38aa"
 )
 
 package() {
-	local build=162.2380.11
+	local build=163.7743.50
 
 	install --directory --mode=755 $pkgdir/opt/phpstorm
 	install --directory --mode=755 $pkgdir/usr/bin
@@ -30,5 +30,5 @@ package() {
 	ln -s /opt/phpstorm/bin/phpstorm.sh $pkgdir/usr/bin/phpstorm
 
 	install -D --mode=644 $srcdir/jetbrains-phpstorm.desktop $pkgdir/usr/share/applications/
-	install -D --mode=644 $pkgdir/opt/phpstorm/bin/webide.png $pkgdir/usr/share/pixmaps/phpstorm.png
+	install -D --mode=644 $pkgdir/opt/phpstorm/bin/phpstorm.png $pkgdir/usr/share/pixmaps/phpstorm.png
 }
