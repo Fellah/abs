@@ -1,5 +1,5 @@
 pkgname=phpstorm
-pkgver=2016.3
+pkgver=2016.3.1
 pkgrel=1
 pkgdesc="PhpStorm"
 arch=("i686" "x86_64")
@@ -13,7 +13,7 @@ source=(
 	"jetbrains-phpstorm.desktop"
 )
 sha512sums=(
-	"fa681f4f2cdeb546d7b1301ee57acb5cec66231e01921b6ef3d89c05f0ba1a50887bf56db523191a87e938b8d206860a363aa8ab1d2845a2400a17fdb8f1eb9c"
+	"1c41d5bf815c538be82defaaa07d99e8b20fe7731337eb4b032082f7f6a60c8ecf97c23ced451a30cde7b7176a599a89bedab3f9f2d044f0f1cacd61b4a1136c"
 	"ecd38ba61292bcee49790559ba3156310d455896d067aea97d9e12e4aa518c7d1f131f98895124839f867be90fdd77ee64dcb07a8bc444b6add45ea0800e38aa"
 )
 
