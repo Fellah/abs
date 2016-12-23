@@ -1,0 +1,36 @@
+pkgname=phpstorm
+pkgver=2016.3.2
+pkgrel=1
+pkgdesc="PhpStorm"
+arch=("i686" "x86_64")
+backup=("opt/phpstorm/bin/idea.properties")
+options=(!strip)
+url="http://www.jetbrains.com/phpstorm/"
+license=(custom)
+depends=("java-environment>=8" "java-runtime-common")
+source=(
+	"http://download.jetbrains.com/webide/PhpStorm-$pkgver.tar.gz"
+	"jetbrains-phpstorm.desktop"
+)
+sha512sums=(
+	"4fe6c53b3f10b74e45e639543b139fbb284f2e5a30d6c4503e73cc097acd833b79a5736eb9d6fd50368fa5c9d54c1f3b79752c56362167f9a7de813e71912c46"
+	"ecd38ba61292bcee49790559ba3156310d455896d067aea97d9e12e4aa518c7d1f131f98895124839f867be90fdd77ee64dcb07a8bc444b6add45ea0800e38aa"
+)
+
+package() {
+	local build=163.10504.2
+
+	install --directory --mode=755 $pkgdir/opt/phpstorm
+	install --directory --mode=755 $pkgdir/usr/bin
+	install --directory --mode=755 $pkgdir/usr/share/applications/
+	install --directory --mode=755 $pkgdir/usr/share/pixmaps/
+
+	cp -rf $srcdir/PhpStorm-$build/* $pkgdir/opt/phpstorm
+
+	rm --force --recursive $pkgdir/opt/phpstorm/jre
+
+	ln -s /opt/phpstorm/bin/phpstorm.sh $pkgdir/usr/bin/phpstorm
+
+	install -D --mode=644 $srcdir/jetbrains-phpstorm.desktop $pkgdir/usr/share/applications/
+	install -D --mode=644 $pkgdir/opt/phpstorm/bin/phpstorm.png $pkgdir/usr/share/pixmaps/phpstorm.png
+}
