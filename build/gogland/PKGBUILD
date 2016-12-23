@@ -1,36 +1,34 @@
-pkgname=phpstorm
-pkgver=2016.3.2
+pkgname=gogland
+pkgver=163.10615.6
 pkgrel=1
-pkgdesc="PhpStorm"
+pkgdesc="Capable and Ergonomic Go IDE"
 arch=("i686" "x86_64")
-backup=("opt/phpstorm/bin/idea.properties")
+backup=("opt/gogland/bin/idea.properties")
 options=(!strip)
-url="http://www.jetbrains.com/phpstorm/"
+url="https://www.jetbrains.com/go/"
 license=(custom)
 depends=("java-environment>=8" "java-runtime-common")
 source=(
-	"http://download.jetbrains.com/webide/PhpStorm-$pkgver.tar.gz"
-	"jetbrains-phpstorm.desktop"
+	"http://download.jetbrains.com/go/gogland-$pkgver.tar.gz"
+	"jetbrains-gogland.desktop"
 )
 sha512sums=(
-	"4fe6c53b3f10b74e45e639543b139fbb284f2e5a30d6c4503e73cc097acd833b79a5736eb9d6fd50368fa5c9d54c1f3b79752c56362167f9a7de813e71912c46"
-	"ecd38ba61292bcee49790559ba3156310d455896d067aea97d9e12e4aa518c7d1f131f98895124839f867be90fdd77ee64dcb07a8bc444b6add45ea0800e38aa"
+	"1cbd081d4079428f6eb13ca9db27524afb09a5b3f772b7cf54c2aa0fe33d569fddae3035bda659094648d81904cc68fe4d60167e27c51b2376a243f7990bdfbe"
+	"6fefd70637118f476c84a788679cf839eff4cc133889d90adadfcce11b5ce37e6baca6355c7758f9cafaafae09ccc02d48a4ced79200cd40718664e1b63aa401"
 )
 
 package() {
-	local build=163.10504.2
-
-	install --directory --mode=755 $pkgdir/opt/phpstorm
+	install --directory --mode=755 $pkgdir/opt/gogland
 	install --directory --mode=755 $pkgdir/usr/bin
 	install --directory --mode=755 $pkgdir/usr/share/applications/
 	install --directory --mode=755 $pkgdir/usr/share/pixmaps/
 
-	cp -rf $srcdir/PhpStorm-$build/* $pkgdir/opt/phpstorm
+	cp --force --recursive $srcdir/Gogland-$pkgver/* $pkgdir/opt/gogland
 
-	rm --force --recursive $pkgdir/opt/phpstorm/jre
+	rm --force --recursive $pkgdir/opt/gogland/jre
 
-	ln -s /opt/phpstorm/bin/phpstorm.sh $pkgdir/usr/bin/phpstorm
+	ln --symbolic /opt/gogland/bin/gogland.sh $pkgdir/usr/bin/gogland
 
-	install -D --mode=644 $srcdir/jetbrains-phpstorm.desktop $pkgdir/usr/share/applications/
-	install -D --mode=644 $pkgdir/opt/phpstorm/bin/phpstorm.png $pkgdir/usr/share/pixmaps/phpstorm.png
+	install -D --mode=644 $srcdir/jetbrains-gogland.desktop $pkgdir/usr/share/applications/
+	install -D --mode=644 $pkgdir/opt/gogland/bin/gogland.png $pkgdir/usr/share/pixmaps/gogland.png
 }
