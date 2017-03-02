@@ -1,8 +1,3 @@
-.bash_history
-
-/cache
-/packages
-
 *.pkg.tar.xz
 *.tar.gz
 pkg
