@@ -1,0 +1,20 @@
+pkgname=doctl
+pkgver=1.5.0
+pkgrel=1
+pkgdesc="A command line tool for DigitalOcean services"
+arch=("x86_64")
+url="https://github.com/digitalocean/doctl"
+license=("Apache")
+depends=()
+source=(
+	"https://github.com/digitalocean/$pkgname/releases/download/v$pkgver/$pkgname-$pkgver-linux-amd64.tar.gz"
+)
+sha512sums=(
+	"d7dbfce8cccf69d9c4c2946c58003cc388808006453b07b1e05bd21c906cf74cf5a3d0150f427bfd06d62b1f11aa772c1453630ab7ac88e60a407ed70e1caf4f"
+)
+options=(strip)
+
+package() {
+	install --directory $pkgdir/usr/bin/
+	install --mode 755 doctl $pkgdir/usr/bin/
+}
